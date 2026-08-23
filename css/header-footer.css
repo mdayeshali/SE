@@ -1,182 +1,1026 @@
-/* --- Header Styles --- */
+/* =========================================================
+   ISLAMIC LIGHT
+   Family & Married Life Website
+   Header & Footer Styles
+   File: header-footer.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. CSS VARIABLES
+   ========================================================= */
+
+:root {
+    --primary-color: #00695c;
+    --primary-dark: #004d40;
+    --primary-light: #00897b;
+
+    --secondary-color: #c9a227;
+
+    --header-bg: #ffffff;
+    --footer-bg: #003c34;
+
+    --text-color: #263238;
+    --text-light: #607d8b;
+    --white: #ffffff;
+
+    --border-color: #e0e0e0;
+    --hover-bg: #f1f8f6;
+
+    --header-height: 74px;
+
+    --container-width: 1200px;
+
+    --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.06);
+
+    --shadow-md:
+        0 4px 18px rgba(0, 0, 0, 0.10);
+
+    --transition:
+        0.25s ease;
+}
+
+
+/* =========================================================
+   2. BASIC RESET
+   ========================================================= */
+
+.site-header *,
+.site-footer * {
+    box-sizing: border-box;
+}
+
+.site-header ul,
+.site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header a,
+.site-footer a {
+    text-decoration: none;
+}
+
+.site-header button,
+.site-footer button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
 .site-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
+    width: 100%;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.header-inner {
-    max-width: 1150px;
+
+/* =========================================================
+   4. HEADER CONTAINER
+   ========================================================= */
+
+.site-header .header-container {
+    width: min(100% - 32px, var(--container-width));
+    min-height: var(--header-height);
+
     margin: 0 auto;
-    padding: 12px 20px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
 }
 
-.brand-logo {
+
+/* =========================================================
+   5. BRAND / LOGO
+   ========================================================= */
+
+.site-header .site-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #0d5c46;
-    font-size: 1.35rem;
+    gap: 12px;
+
+    color: var(--primary-dark);
+
+    flex-shrink: 0;
+}
+
+.site-header .site-logo {
+    width: 46px;
+    height: 46px;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+.site-header .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    line-height: 1.25;
+}
+
+.site-header .brand-title {
+    margin: 0;
+
+    color: var(--primary-dark);
+
+    font-size: 1.05rem;
     font-weight: 700;
 }
 
-.brand-logo small {
-    font-size: 0.8rem;
-    color: #64748b;
+.site-header .brand-subtitle {
+    margin: 3px 0 0;
+
+    color: var(--text-light);
+
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   6. DESKTOP NAVIGATION
+   ========================================================= */
+
+.site-header .main-navigation {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+}
+
+.site-header .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.site-header .nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 8px 13px;
+
+    color: var(--text-color);
+
+    font-size: 0.92rem;
     font-weight: 500;
+
+    border-radius: 8px;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition);
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link:focus-visible {
+    color: var(--primary-color);
+    background: var(--hover-bg);
+}
+
+.site-header .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+
+/* Active navigation indicator */
+
+.site-header .nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 3px;
+
+    height: 2px;
+
+    background: var(--secondary-color);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   7. HEADER ACTIONS
+   ========================================================= */
+
+.site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+/* Generic header action */
+
+.site-header .header-action {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    color: var(--primary-dark);
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.site-header .header-action:hover,
+.site-header .header-action:focus-visible {
+    color: var(--primary-color);
+    background: var(--hover-bg);
+    border-color: var(--border-color);
+}
+
+
+/* =========================================================
+   8. SEARCH BUTTON
+   ========================================================= */
+
+.site-header .search-button {
+    font-size: 1.15rem;
+}
+
+
+/* =========================================================
+   9. MOBILE MENU BUTTON
+   ========================================================= */
+
+.site-header .menu-toggle {
+    display: none;
+
+    position: relative;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.site-header .menu-toggle:hover,
+.site-header .menu-toggle:focus-visible {
+    background: var(--hover-bg);
+    border-color: var(--primary-color);
+}
+
+.site-header .menu-icon,
+.site-header .menu-icon::before,
+.site-header .menu-icon::after {
+    width: 21px;
+    height: 2px;
+
+    background: var(--primary-dark);
+
+    border-radius: 5px;
+
+    transition:
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+.site-header .menu-icon {
+    position: relative;
+
+    display: block;
+
+    margin: auto;
+}
+
+.site-header .menu-icon::before,
+.site-header .menu-icon::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+}
+
+.site-header .menu-icon::before {
+    top: -7px;
+}
+
+.site-header .menu-icon::after {
+    top: 7px;
+}
+
+
+/* =========================================================
+   10. MOBILE MENU OPEN STATE
+   Controlled by global.js
+   ========================================================= */
+
+.site-header .menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent;
+}
+
+.site-header .menu-toggle[aria-expanded="true"] .menu-icon::before {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.site-header .menu-toggle[aria-expanded="true"] .menu-icon::after {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   11. MOBILE SEARCH
+   ========================================================= */
+
+.site-header .search-panel {
+    display: none;
+
+    width: 100%;
+
+    padding: 12px 16px;
+
+    background: var(--header-bg);
+
+    border-top: 1px solid var(--border-color);
+}
+
+.site-header .search-panel.is-open {
     display: block;
 }
 
-.nav-menu {
+.site-header .search-form {
+    width: min(100%, 700px);
+
+    margin: 0 auto;
+
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
 }
 
-.nav-link {
-    text-decoration: none;
-    color: #334155;
+.site-header .search-input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 44px;
+
+    padding: 8px 14px;
+
+    color: var(--text-color);
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    outline: none;
+
     font-size: 0.95rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.2s ease;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
 }
 
-.nav-link:hover, .nav-link.active {
-    color: #0d5c46;
+.site-header .search-input:focus {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 105, 92, 0.10);
 }
 
-.main-site-btn {
-    background: #eef7f2;
-    color: #0d5c46;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid #c2e2d0;
-}
+.site-header .search-submit {
+    min-height: 44px;
 
-.main-site-btn:hover {
-    background: #0d5c46;
-    color: #ffffff;
-}
+    padding: 8px 18px;
 
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.3rem;
-    color: #0d5c46;
+    color: var(--white);
+    background: var(--primary-color);
+
+    border: 0;
+    border-radius: 8px;
+
     cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
 }
 
-/* --- Footer Styles --- */
+.site-header .search-submit:hover,
+.site-header .search-submit:focus-visible {
+    background: var(--primary-dark);
+}
+
+.site-header .search-submit:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   12. HEADER DROPDOWN SUPPORT
+   ========================================================= */
+
+.site-header .has-dropdown {
+    position: relative;
+}
+
+.site-header .dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    min-width: 210px;
+
+    padding: 8px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    box-shadow: var(--shadow-md);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+}
+
+.site-header .has-dropdown:hover .dropdown-menu,
+.site-header .has-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.site-header .dropdown-link {
+    display: block;
+
+    padding: 10px 12px;
+
+    color: var(--text-color);
+
+    border-radius: 7px;
+
+    font-size: 0.9rem;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition);
+}
+
+.site-header .dropdown-link:hover,
+.site-header .dropdown-link:focus-visible {
+    color: var(--primary-color);
+    background: var(--hover-bg);
+}
+
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+
 .site-footer {
-    background: #09261e;
-    color: #94a3b8;
-    padding: 50px 20px 20px;
     margin-top: 60px;
+
+    color: #e8f5f2;
+
+    background: var(--footer-bg);
 }
 
-.footer-container {
-    max-width: 1150px;
+
+/* =========================================================
+   14. FOOTER CONTAINER
+   ========================================================= */
+
+.site-footer .footer-container {
+    width: min(100% - 32px, var(--container-width));
+
     margin: 0 auto;
 }
 
-.footer-grid {
+
+/* =========================================================
+   15. FOOTER MAIN
+   ========================================================= */
+
+.site-footer .footer-main {
+    padding: 56px 0 42px;
+
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+
+    grid-template-columns:
+        minmax(220px, 1.4fr)
+        repeat(3, minmax(150px, 1fr));
+
     gap: 40px;
-    margin-bottom: 40px;
 }
 
-.footer-logo {
-    color: #ffffff;
-    font-size: 1.4rem;
+
+/* =========================================================
+   16. FOOTER BRAND
+   ========================================================= */
+
+.site-footer .footer-brand {
+    max-width: 360px;
+}
+
+.site-footer .footer-logo {
+    width: 50px;
+    height: 50px;
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+.site-footer .footer-title {
+    margin: 0 0 10px;
+
+    color: var(--white);
+
+    font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 12px;
 }
 
-.footer-text {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    max-width: 400px;
-}
+.site-footer .footer-description {
+    margin: 0;
 
-.footer-links-group h4 {
-    color: #ffffff;
-    font-size: 1.05rem;
-    margin-bottom: 15px;
-}
+    color: #b7d4cf;
 
-.footer-links-group ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links-group li {
-    margin-bottom: 8px;
-}
-
-.footer-links-group a {
-    color: #cbd5e1;
-    text-decoration: none;
     font-size: 0.9rem;
-    transition: color 0.2s ease;
+    line-height: 1.8;
 }
 
-.footer-links-group a:hover {
-    color: #d4af37;
+
+/* =========================================================
+   17. FOOTER COLUMNS
+   ========================================================= */
+
+.site-footer .footer-column-title {
+    margin: 0 0 16px;
+
+    color: var(--white);
+
+    font-size: 0.98rem;
+    font-weight: 700;
 }
 
-.footer-bottom {
-    border-top: 1px solid #1a3d33;
-    padding-top: 20px;
+.site-footer .footer-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: #64748b;
+    flex-direction: column;
+
+    gap: 9px;
 }
 
-/* --- Mobile Responsive --- */
+.site-footer .footer-link {
+    display: inline-block;
+
+    width: fit-content;
+
+    color: #b7d4cf;
+
+    font-size: 0.88rem;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+.site-footer .footer-link:hover,
+.site-footer .footer-link:focus-visible {
+    color: var(--white);
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   18. FOOTER SOCIAL LINKS
+   ========================================================= */
+
+.site-footer .social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.site-footer .social-link {
+    width: 38px;
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d7ebe7;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+
+    font-size: 0.85rem;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.site-footer .social-link:hover,
+.site-footer .social-link:focus-visible {
+    color: var(--white);
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   19. FOOTER BOTTOM
+   ========================================================= */
+
+.site-footer .footer-bottom {
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.site-footer .copyright {
+    margin: 0;
+
+    color: #a9c7c2;
+
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.site-footer .footer-bottom-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+.site-footer .footer-bottom-link {
+    color: #a9c7c2;
+
+    font-size: 0.82rem;
+
+    transition: color var(--transition);
+}
+
+.site-footer .footer-bottom-link:hover,
+.site-footer .footer-bottom-link:focus-visible {
+    color: var(--white);
+}
+
+
+/* =========================================================
+   20. ACCESSIBILITY
+   ========================================================= */
+
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.site-footer a:focus-visible,
+.site-footer button:focus-visible {
+    outline: 3px solid rgba(201, 162, 39, 0.45);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   21. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .site-header *,
+    .site-footer * {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   22. TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    .site-header .nav-link {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        font-size: 0.87rem;
+    }
+
+    .site-footer .footer-main {
+        grid-template-columns:
+            repeat(2, minmax(180px, 1fr));
+
+        gap: 32px;
+    }
+
+    .site-footer .footer-brand {
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   23. MOBILE NAVIGATION
+   ========================================================= */
+
 @media (max-width: 768px) {
-    .mobile-menu-btn {
+
+    .site-header .header-container {
+        min-height: 66px;
+
+        width: min(100% - 24px, var(--container-width));
+
+        gap: 10px;
+    }
+
+    .site-header .site-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .site-header .brand-title {
+        font-size: 0.95rem;
+    }
+
+    .site-header .brand-subtitle {
+        font-size: 0.68rem;
+    }
+
+    .site-header .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-header .main-navigation {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+
+        width: 100%;
+
+        padding: 10px 12px 14px;
+
+        background: var(--white);
+
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+
+        box-shadow: var(--shadow-md);
+    }
+
+    .site-header .main-navigation.is-open {
         display: block;
     }
 
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 20px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        border-bottom: 1px solid #e2e8f0;
-        gap: 15px;
-    }
-
-    .nav-menu.open {
+    .site-header .nav-list {
         display: flex;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .footer-bottom {
         flex-direction: column;
-        gap: 8px;
-        text-align: center;
+        align-items: stretch;
+
+        gap: 3px;
+    }
+
+    .site-header .nav-item {
+        width: 100%;
+    }
+
+    .site-header .nav-link {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        min-height: 46px;
+
+        padding: 10px 14px;
+
+        border-radius: 7px;
+    }
+
+    .site-header .nav-link.active::after {
+        left: 8px;
+        right: auto;
+
+        top: 10px;
+        bottom: 10px;
+
+        width: 3px;
+        height: auto;
+    }
+
+    .site-header .dropdown-menu {
+        position: static;
+
+        display: none;
+
+        width: 100%;
+
+        margin-top: 2px;
+
+        padding: 4px;
+
+        border: 0;
+
+        box-shadow: none;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+    }
+
+    .site-header .has-dropdown.is-open .dropdown-menu {
+        display: block;
+    }
+
+    .site-header .dropdown-link {
+        padding-left: 28px;
+    }
+
+    .site-footer {
+        margin-top: 40px;
+    }
+
+    .site-footer .footer-main {
+        padding: 42px 0 32px;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .site-footer .footer-brand {
+        max-width: 600px;
+    }
+
+    .site-footer .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 18px 0;
+    }
+}
+
+
+/* =========================================================
+   24. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .site-header .header-container {
+        width: min(100% - 18px, var(--container-width));
+    }
+
+    .site-header .brand-subtitle {
+        display: none;
+    }
+
+    .site-header .header-actions {
+        gap: 3px;
+    }
+
+    .site-header .header-action {
+        width: 39px;
+        height: 39px;
+    }
+
+    .site-header .menu-toggle {
+        width: 41px;
+        height: 41px;
+    }
+
+    .site-header .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-header .search-submit {
+        width: 100%;
+    }
+
+    .site-footer .footer-container {
+        width: min(100% - 24px, var(--container-width));
+    }
+
+    .site-footer .footer-main {
+        padding-top: 36px;
+    }
+
+    .site-footer .footer-bottom-links {
+        gap: 10px;
+    }
+}
+
+
+/* =========================================================
+   25. PRINT
+   ========================================================= */
+
+@media print {
+
+    .site-header {
+        position: static;
+
+        box-shadow: none;
+    }
+
+    .site-header .main-navigation,
+    .site-header .header-actions,
+    .site-footer .social-links {
+        display: none !important;
+    }
+
+    .site-footer {
+        color: #000000;
+        background: transparent;
     }
 }
