@@ -272,7 +272,51 @@
     border-color: var(--border-color);
 }
 
+/* =========================================================
+   THEME TOGGLE BUTTON
+   ========================================================= */
 
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--home-bg-green);
+    color: var(--home-primary);
+    border: 1px solid var(--home-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color var(--home-transition), color var(--home-transition), transform var(--home-transition), border-color var(--home-transition);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--home-primary);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* আইকন টগল করার লজিক */
+.theme-toggle-btn .sun-icon {
+    display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+    display: block;
+}
+
+/* ডার্ক মোড সক্রিয় থাকলে সূর্য দেখাবে এবং চাঁদ লুকাবে */
+body.dark-mode .theme-toggle-btn .sun-icon,
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+    display: block;
+    color: #ffd54f; /* গোল্ডেন সান কালার */
+}
+
+body.dark-mode .theme-toggle-btn .moon-icon,
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+    display: none;
+}
 /* =========================================================
    8. SEARCH BUTTON
    ========================================================= */
