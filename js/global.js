@@ -1,38 +1,628 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // ১. গ্লোবাল হেডার রেন্ডার
-    const headerContainer = document.getElementById("header-container");
-    if (headerContainer) {
-        headerContainer.innerHTML = `
-            <header style="background: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
-                <div style="max-width: 1150px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;">
-                    <a href="/" style="font-size: 1.3rem; font-weight: 700; color: #0d5c46; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-moon"></i> Islamic Light
-                    </a>
-                    <nav style="display: flex; gap: 15px; font-size: 0.95rem; font-weight: 500;">
-                        <a href="/" style="color: #2d3748; text-decoration: none;">হোম</a>
-                        <a href="https://islamiclight.in" target="_blank" style="color: #0d5c46; text-decoration: none;">মূল ওয়েবসাইট <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i></a>
-                    </nav>
-                </div>
-            </header>
-        `;
+/* =========================================================
+   ISLAMIC LIGHT
+   Family & Married Life Website
+   Global JavaScript
+   File: global.js
+   ========================================================= */
+
+"use strict";
+
+
+/* =========================================================
+   1. GLOBAL CONFIGURATION
+   ========================================================= */
+
+const SITE_CONFIG = {
+    headerPath: "/includes/header.html",
+    footerPath: "/includes/footer.html"
+};
+
+
+/* =========================================================
+   2. LOAD HTML INCLUDE
+   ========================================================= */
+
+async function loadInclude(selector, filePath) {
+
+    const container = document.querySelector(selector);
+
+    if (!container) {
+        return;
     }
 
-    // ২. গ্লোবাল ফুটার রেন্ডার
-    const footerContainer = document.getElementById("footer-container");
-    if (footerContainer) {
-        footerContainer.innerHTML = `
-            <footer style="background: #0d2920; color: #cbd5e1; padding: 40px 20px 20px; margin-top: 60px; font-size: 0.9rem;">
-                <div style="max-width: 1150px; margin: 0 auto; text-align: center;">
-                    <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 10px;">Islamic Light — গাইড ও প্যারেন্টিং</h3>
-                    <p style="max-width: 600px; margin: 0 auto 20px; color: #94a3b8; font-size: 0.88rem;">
-                        কুরআন ও সুন্নাহর সঠিক জ্ঞান প্রচার এবং সমাজকে চারিত্রিক ফিতনা থেকে রক্ষা করাই আমাদের মূল লক্ষ্য।
-                    </p>
-                    <div style="border-top: 1px solid #1f473b; padding-top: 15px; font-size: 0.85rem; color: #64748b;">
-                        © ${new Date().getFullYear()} islamiclight.in — সর্বস্বত্ব সংরক্ষিত
-                    </div>
-                </div>
-            </footer>
-        `;
+    try {
+
+        const response = await fetch(filePath, {
+            cache: "no-cache"
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `Failed to load ${filePath}: ${response.status}`
+            );
+        }
+
+        const html = await response.text();
+
+        container.innerHTML = html;
+
+    } catch (error) {
+
+        console.error(
+            `Islamic Light: Unable to load ${filePath}`,
+            error
+        );
+
     }
-});
+}
+
+
+/* =========================================================
+   3. LOAD HEADER
+   ========================================================= */
+
+async function loadHeader() {
+
+    await loadInclude(
+        "#site-header",
+        SITE_CONFIG.headerPath
+    );
+
+    initializeHeader();
+
+}
+
+
+/* =========================================================
+   4. LOAD FOOTER
+   ========================================================= */
+
+async function loadFooter() {
+
+    await loadInclude(
+        "#site-footer",
+        SITE_CONFIG.footerPath
+    );
+
+    initializeFooter();
+
+}
+
+
+/* =========================================================
+   5. INITIALIZE HEADER
+   ========================================================= */
+
+function initializeHeader() {
+
+    initializeMobileMenu();
+
+    initializeSearch();
+
+    initializeActiveNavigation();
+
+    initializeDropdowns();
+
+}
+
+
+/* =========================================================
+   6. MOBILE MENU
+   ========================================================= */
+
+function initializeMobileMenu() {
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const navigation =
+        document.querySelector(".main-navigation");
+
+    if (!menuToggle || !navigation) {
+        return;
+    }
+
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen =
+            menuToggle.getAttribute("aria-expanded") === "true";
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "মেনু খুলুন" : "মেনু বন্ধ করুন"
+        );
+
+        navigation.classList.toggle(
+            "is-open",
+            !isOpen
+        );
+
+    });
+
+
+    /*
+     * Close menu after clicking a navigation link
+     * on mobile devices.
+     */
+
+    const navigationLinks =
+        navigation.querySelectorAll(".nav-link");
+
+    navigationLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            if (window.innerWidth <= 768) {
+
+                closeMobileMenu();
+
+            }
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   7. CLOSE MOBILE MENU
+   ========================================================= */
+
+function closeMobileMenu() {
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const navigation =
+        document.querySelector(".main-navigation");
+
+    if (!menuToggle || !navigation) {
+        return;
+    }
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "মেনু খুলুন"
+    );
+
+    navigation.classList.remove("is-open");
+
+}
+
+
+/* =========================================================
+   8. SEARCH
+   ========================================================= */
+
+function initializeSearch() {
+
+    const searchToggle =
+        document.getElementById("search-toggle");
+
+    const searchPanel =
+        document.getElementById("search-panel");
+
+    const searchInput =
+        document.getElementById("site-search");
+
+    if (!searchToggle || !searchPanel) {
+        return;
+    }
+
+
+    searchToggle.addEventListener("click", function () {
+
+        const isOpen =
+            searchToggle.getAttribute("aria-expanded") === "true";
+
+
+        searchToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+
+        searchPanel.classList.toggle(
+            "is-open",
+            !isOpen
+        );
+
+
+        searchPanel.setAttribute(
+            "aria-hidden",
+            String(isOpen)
+        );
+
+
+        if (!isOpen && searchInput) {
+
+            setTimeout(function () {
+
+                searchInput.focus();
+
+            }, 100);
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   9. CLOSE SEARCH
+   ========================================================= */
+
+function closeSearch() {
+
+    const searchToggle =
+        document.getElementById("search-toggle");
+
+    const searchPanel =
+        document.getElementById("search-panel");
+
+    if (!searchToggle || !searchPanel) {
+        return;
+    }
+
+    searchToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    searchPanel.classList.remove("is-open");
+
+    searchPanel.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+/* =========================================================
+   10. ACTIVE NAVIGATION
+   ========================================================= */
+
+function initializeActiveNavigation() {
+
+    const navigation =
+        document.querySelector(".main-navigation");
+
+    if (!navigation) {
+        return;
+    }
+
+
+    const currentPath =
+        normalizePath(window.location.pathname);
+
+
+    const navigationLinks =
+        navigation.querySelectorAll(".nav-link");
+
+
+    navigationLinks.forEach(function (link) {
+
+        const linkURL =
+            new URL(link.href, window.location.origin);
+
+        const linkPath =
+            normalizePath(linkURL.pathname);
+
+
+        if (linkPath === currentPath) {
+
+            link.classList.add("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   11. NORMALIZE URL PATH
+   ========================================================= */
+
+function normalizePath(path) {
+
+    if (!path) {
+        return "/";
+    }
+
+
+    /*
+     * Remove trailing slash
+     * except for homepage.
+     */
+
+    if (path.length > 1 && path.endsWith("/")) {
+
+        path = path.slice(0, -1);
+
+    }
+
+
+    return path.toLowerCase();
+
+}
+
+
+/* =========================================================
+   12. DROPDOWN SUPPORT
+   ========================================================= */
+
+function initializeDropdowns() {
+
+    const dropdownItems =
+        document.querySelectorAll(".has-dropdown");
+
+
+    if (!dropdownItems.length) {
+        return;
+    }
+
+
+    dropdownItems.forEach(function (item) {
+
+        const trigger =
+            item.querySelector(".dropdown-toggle");
+
+
+        if (!trigger) {
+            return;
+        }
+
+
+        trigger.addEventListener(
+            "click",
+            function (event) {
+
+                if (window.innerWidth <= 768) {
+
+                    event.preventDefault();
+
+                    const isOpen =
+                        item.classList.contains("is-open");
+
+
+                    /*
+                     * Close other dropdowns.
+                     */
+
+                    dropdownItems.forEach(
+                        function (otherItem) {
+
+                            otherItem.classList.remove(
+                                "is-open"
+                            );
+
+                        }
+                    );
+
+
+                    item.classList.toggle(
+                        "is-open",
+                        !isOpen
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   13. CLOSE MENUS WITH ESC KEY
+   ========================================================= */
+
+function initializeKeyboardControls() {
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key !== "Escape") {
+                return;
+            }
+
+
+            closeMobileMenu();
+
+            closeSearch();
+
+
+            /*
+             * Close dropdowns.
+             */
+
+            document
+                .querySelectorAll(".has-dropdown.is-open")
+                .forEach(function (item) {
+
+                    item.classList.remove("is-open");
+
+                });
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   14. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+function initializeOutsideClick() {
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const navigation =
+                document.querySelector(".main-navigation");
+
+            const menuToggle =
+                document.getElementById("menu-toggle");
+
+
+            if (!navigation || !menuToggle) {
+                return;
+            }
+
+
+            if (
+                window.innerWidth <= 768 &&
+                navigation.classList.contains("is-open") &&
+                !navigation.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   15. HANDLE WINDOW RESIZE
+   ========================================================= */
+
+function initializeResizeHandler() {
+
+    let previousWidth =
+        window.innerWidth;
+
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            const currentWidth =
+                window.innerWidth;
+
+
+            /*
+             * When moving from mobile
+             * to desktop.
+             */
+
+            if (
+                previousWidth <= 768 &&
+                currentWidth > 768
+            ) {
+
+                closeMobileMenu();
+
+                closeSearch();
+
+            }
+
+
+            previousWidth =
+                currentWidth;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   16. FOOTER YEAR
+   ========================================================= */
+
+function initializeFooter() {
+
+    const yearElement =
+        document.getElementById("current-year");
+
+
+    if (!yearElement) {
+        return;
+    }
+
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   17. INITIALIZE EVERYTHING
+   ========================================================= */
+
+async function initializeWebsite() {
+
+    /*
+     * Load header and footer.
+     */
+
+    await Promise.all([
+        loadHeader(),
+        loadFooter()
+    ]);
+
+
+    /*
+     * Global keyboard and
+     * interaction controls.
+     */
+
+    initializeKeyboardControls();
+
+    initializeOutsideClick();
+
+    initializeResizeHandler();
+
+}
+
+
+/* =========================================================
+   18. START WEBSITE
+   ========================================================= */
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeWebsite
+    );
+
+} else {
+
+    initializeWebsite();
+
+                       }
 
