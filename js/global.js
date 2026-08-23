@@ -256,9 +256,11 @@ function initializeDropdowns() {
 function initializeThemeToggle() {
     const themeToggleBtn = document.getElementById("theme-toggle");
 
-    // LocalStorage থেকে পূর্ববর্তী সেটিংস চেক করা
+    // LocalStorage অথবা সিস্টেম থিম অনুযায়ী ইনিশিয়াল স্টেট নির্ধারণ
     const savedTheme = localStorage.getItem("site-theme");
-    if (savedTheme === "dark") {
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
         document.body.classList.add("dark-mode");
     }
 
@@ -276,7 +278,6 @@ function initializeThemeToggle() {
         }
     });
 }
-
 
 /* =========================================================
    13. GLOBAL KEYBOARD & CLICK LISTENERS
