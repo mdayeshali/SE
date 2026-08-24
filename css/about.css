@@ -38,30 +38,7 @@
 }
 
 /* System Dark Mode Preference */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --about-primary: #26a69a;
-        --about-primary-dark: #80cbc4;
-        --about-primary-light: #152c28;
 
-        --about-secondary: #ffd54f;
-        --about-secondary-light: #2c2514;
-
-        --about-text: #eceff1;
-        --about-text-light: #90a4ae;
-
-        --about-bg: #12181b;
-        --about-white: #1a2226;
-        --about-border: #263238;
-
-        --about-quote-border: #4e401b;
-        --about-disclaimer-bg: #142220;
-        --about-disclaimer-border: #213d39;
-
-        --about-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-        --about-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.45);
-    }
-}
 
 /* Dark Mode Class / Attribute Support */
 body.dark-mode,
