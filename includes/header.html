@@ -4,7 +4,6 @@
 
         <!-- Site Brand -->
         <a href="/" class="site-brand" aria-label="ইসলামি দৃষ্টিতে পরিবার ও দাম্পত্য জীবন">
-
             <img
                 src="/images/favicon.webp"
                 alt="Islamic Light"
@@ -14,115 +13,46 @@
             >
 
             <span class="brand-text">
-
                 <span class="brand-title">
                     ইসলামি পরিবার
                 </span>
-
                 <span class="brand-subtitle">
                     পরিবার ও দাম্পত্য জীবন
                 </span>
-
             </span>
-
         </a>
 
-
         <!-- Main Navigation -->
-        <nav class="main-navigation"
-             aria-label="প্রধান নেভিগেশন">
-
+        <nav class="main-navigation" aria-label="প্রধান নেভিগেশন">
             <ul class="nav-list">
-
                 <li class="nav-item">
-                    <a href="/"
-                       class="nav-link"
-                       data-nav="home">
-                        হোম
-                    </a>
+                    <a href="/" class="nav-link" data-nav="home">হোম</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/articles.html"
-                       class="nav-link"
-                       data-nav="articles">
-                        আর্টিকেল
-                    </a>
+                    <a href="/articles.html" class="nav-link" data-nav="articles">আর্টিকেল</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/categories/dampotto-jibon.html"
-                       class="nav-link"
-                       data-nav="dampotto">
-                        দাম্পত্য জীবন
-                    </a>
+                    <a href="/categories/dampotto-jibon.html" class="nav-link" data-nav="dampotto">দাম্পত্য জীবন</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/categories/bibaho.html"
-                       class="nav-link"
-                       data-nav="bibaho">
-                        বিবাহ
-                    </a>
+                    <a href="/categories/bibaho.html" class="nav-link" data-nav="bibaho">বিবাহ</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/categories/family-life.html"
-                       class="nav-link"
-                       data-nav="family">
-                        পরিবার
-                    </a>
+                    <a href="/categories/family-life.html" class="nav-link" data-nav="family">পরিবার</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/questions.html"
-                       class="nav-link"
-                       data-nav="questions">
-                        প্রশ্নোত্তর
-                    </a>
+                    <a href="/questions.html" class="nav-link" data-nav="questions">প্রশ্নোত্তর</a>
                 </li>
-
-
                 <li class="nav-item">
-                    <a href="/about.html"
-                       class="nav-link"
-                       data-nav="about">
-                        আমাদের সম্পর্কে
-                    </a>
+                    <a href="/about.html" class="nav-link" data-nav="about">আমাদের সম্পর্কে</a>
                 </li>
-
             </ul>
-
         </nav>
-
 
         <!-- Header Actions -->
         <div class="header-actions">
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="ডার্ক মোড পরিবর্তন করুন">
-    <!-- চাঁদ আইকন (লাইট মোডে দেখাবে) -->
-    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-    <!-- সূর্য আইকন (ডার্ক মোডে দেখাবে) -->
-    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-            </button>
 
-            <!-- Search -->
+            <!-- 1. Search Button -->
             <button
                 type="button"
                 class="header-action search-button"
@@ -130,13 +60,36 @@
                 aria-label="অনুসন্ধান"
                 aria-expanded="false"
                 aria-controls="search-panel">
-
                 <span aria-hidden="true">⌕</span>
-
             </button>
 
+            <!-- 2. Dark Mode Toggle (Middle) -->
+            <button 
+                type="button" 
+                id="theme-toggle" 
+                class="header-action theme-toggle-btn" 
+                aria-label="ডার্ক মোড পরিবর্তন করুন">
+                
+                <!-- চাঁদ আইকন (লাইট মোডের জন্য) -->
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
 
-            <!-- Mobile Menu -->
+                <!-- সূর্য আইকন (ডার্ক মোডের জন্য) -->
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+
+            <!-- 3. Mobile Menu -->
             <button
                 type="button"
                 class="menu-toggle"
@@ -144,16 +97,13 @@
                 aria-label="মেনু খুলুন"
                 aria-expanded="false"
                 aria-controls="main-navigation">
-
-                <span class="menu-icon"
-                      aria-hidden="true"></span>
-
+                <span class="menu-icon" aria-hidden="true"></span>
             </button>
 
         </div>
-</div>
 
-    
+    </div>
+
     <!-- Search Panel -->
     <div
         class="search-panel"
