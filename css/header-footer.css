@@ -7,7 +7,7 @@
 
 
 /* =========================================================
-   1. CSS VARIABLES
+   1. CSS VARIABLES (LIGHT & DARK THEMES)
    ========================================================= */
 
 :root {
@@ -26,19 +26,64 @@
 
     --border-color: #e0e0e0;
     --hover-bg: #f1f8f6;
+    --card-bg: #ffffff;
 
     --header-height: 74px;
-
     --container-width: 1200px;
 
-    --shadow-sm:
-        0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.10);
 
-    --shadow-md:
-        0 4px 18px rgba(0, 0, 0, 0.10);
+    --transition: 0.25s ease;
+}
 
-    --transition:
-        0.25s ease;
+/* System Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary-color: #26a69a;
+        --primary-dark: #80cbc4;
+        --primary-light: #4db6ac;
+
+        --secondary-color: #ffd54f;
+
+        --header-bg: #12181b;
+        --footer-bg: #0b1214;
+
+        --text-color: #eceff1;
+        --text-light: #90a4ae;
+        --white: #ffffff;
+
+        --border-color: #263238;
+        --hover-bg: #1a272c;
+        --card-bg: #1a2226;
+
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
+        --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.55);
+    }
+}
+
+/* Dark Mode Class / Attribute Support */
+body.dark-mode,
+[data-theme="dark"] {
+    --primary-color: #26a69a;
+    --primary-dark: #80cbc4;
+    --primary-light: #4db6ac;
+
+    --secondary-color: #ffd54f;
+
+    --header-bg: #12181b;
+    --footer-bg: #0b1214;
+
+    --text-color: #eceff1;
+    --text-light: #90a4ae;
+    --white: #ffffff;
+
+    --border-color: #263238;
+    --hover-bg: #1a272c;
+    --card-bg: #1a2226;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
+    --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.55);
 }
 
 
@@ -82,6 +127,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color var(--transition), border-color var(--transition);
 }
 
 
@@ -227,7 +273,7 @@
 
 
 /* =========================================================
-   7. HEADER ACTIONS
+   7. HEADER ACTIONS & BUTTONS
    ========================================================= */
 
 .site-header .header-actions {
@@ -237,9 +283,6 @@
 
     flex-shrink: 0;
 }
-
-
-/* Generic header action */
 
 .site-header .header-action {
     width: 42px;
@@ -254,7 +297,7 @@
     color: var(--primary-dark);
     background: transparent;
 
-    border: 1px solid transparent;
+    border: 1px solid var(--border-color);
     border-radius: 50%;
 
     cursor: pointer;
@@ -262,42 +305,26 @@
     transition:
         color var(--transition),
         background-color var(--transition),
-        border-color var(--transition);
+        border-color var(--transition),
+        transform var(--transition);
 }
 
 .site-header .header-action:hover,
 .site-header .header-action:focus-visible {
     color: var(--primary-color);
     background: var(--hover-bg);
-    border-color: var(--border-color);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
-/* =========================================================
-   THEME TOGGLE BUTTON
-   ========================================================= */
+
+/* Theme Toggle Button Specifics */
 
 .theme-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background: var(--home-bg-green);
-    color: var(--home-primary);
-    border: 1px solid var(--home-border);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color var(--home-transition), color var(--home-transition), transform var(--home-transition), border-color var(--home-transition);
+    background: var(--hover-bg);
+    color: var(--primary-color);
 }
 
-.theme-toggle-btn:hover {
-    background: var(--home-primary);
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-/* আইকন টগল করার লজিক */
 .theme-toggle-btn .sun-icon {
     display: none;
 }
@@ -306,17 +333,18 @@
     display: block;
 }
 
-/* ডার্ক মোড সক্রিয় থাকলে সূর্য দেখাবে এবং চাঁদ লুকাবে */
 body.dark-mode .theme-toggle-btn .sun-icon,
 [data-theme="dark"] .theme-toggle-btn .sun-icon {
     display: block;
-    color: #ffd54f; /* গোল্ডেন সান কালার */
+    color: #ffd54f;
 }
 
 body.dark-mode .theme-toggle-btn .moon-icon,
 [data-theme="dark"] .theme-toggle-btn .moon-icon {
     display: none;
 }
+
+
 /* =========================================================
    8. SEARCH BUTTON
    ========================================================= */
@@ -335,8 +363,8 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     position: relative;
 
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
     padding: 0;
 
@@ -370,7 +398,8 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     transition:
         transform var(--transition),
-        opacity var(--transition);
+        opacity var(--transition),
+        background-color var(--transition);
 }
 
 .site-header .menu-icon {
@@ -400,7 +429,6 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
 /* =========================================================
    10. MOBILE MENU OPEN STATE
-   Controlled by global.js
    ========================================================= */
 
 .site-header .menu-toggle[aria-expanded="true"] .menu-icon {
@@ -417,7 +445,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
 
 /* =========================================================
-   11. MOBILE SEARCH
+   11. MOBILE SEARCH PANEL
    ========================================================= */
 
 .site-header .search-panel {
@@ -457,7 +485,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     color: var(--text-color);
 
-    background: #ffffff;
+    background: var(--card-bg);
 
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -468,14 +496,15 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     transition:
         border-color var(--transition),
-        box-shadow var(--transition);
+        box-shadow var(--transition),
+        background-color var(--transition);
 }
 
 .site-header .search-input:focus {
     border-color: var(--primary-color);
 
     box-shadow:
-        0 0 0 3px rgba(0, 105, 92, 0.10);
+        0 0 0 3px rgba(38, 166, 154, 0.15);
 }
 
 .site-header .search-submit {
@@ -483,7 +512,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     padding: 8px 18px;
 
-    color: var(--white);
+    color: #ffffff;
     background: var(--primary-color);
 
     border: 0;
@@ -501,6 +530,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 .site-header .search-submit:hover,
 .site-header .search-submit:focus-visible {
     background: var(--primary-dark);
+    color: #12181b;
 }
 
 .site-header .search-submit:active {
@@ -526,7 +556,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
     padding: 8px;
 
-    background: var(--white);
+    background: var(--card-bg);
 
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -585,6 +615,9 @@ body.dark-mode .theme-toggle-btn .moon-icon,
     color: #e8f5f2;
 
     background: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+
+    transition: background-color var(--transition), border-color var(--transition);
 }
 
 
@@ -655,6 +688,11 @@ body.dark-mode .theme-toggle-btn .moon-icon,
     line-height: 1.8;
 }
 
+body.dark-mode .site-footer .footer-description,
+[data-theme="dark"] .site-footer .footer-description {
+    color: #8c9ba5;
+}
+
 
 /* =========================================================
    17. FOOTER COLUMNS
@@ -690,9 +728,14 @@ body.dark-mode .theme-toggle-btn .moon-icon,
         transform var(--transition);
 }
 
+body.dark-mode .site-footer .footer-link,
+[data-theme="dark"] .site-footer .footer-link {
+    color: #8c9ba5;
+}
+
 .site-footer .footer-link:hover,
 .site-footer .footer-link:focus-visible {
-    color: var(--white);
+    color: var(--secondary-color);
 
     transform: translateX(3px);
 }
@@ -734,7 +777,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
 .site-footer .social-link:hover,
 .site-footer .social-link:focus-visible {
-    color: var(--white);
+    color: #ffffff;
 
     background: rgba(255, 255, 255, 0.10);
 
@@ -769,6 +812,11 @@ body.dark-mode .theme-toggle-btn .moon-icon,
     line-height: 1.6;
 }
 
+body.dark-mode .site-footer .copyright,
+[data-theme="dark"] .site-footer .copyright {
+    color: #6d808c;
+}
+
 .site-footer .footer-bottom-links {
     display: flex;
     align-items: center;
@@ -785,9 +833,14 @@ body.dark-mode .theme-toggle-btn .moon-icon,
     transition: color var(--transition);
 }
 
+body.dark-mode .site-footer .footer-bottom-link,
+[data-theme="dark"] .site-footer .footer-bottom-link {
+    color: #6d808c;
+}
+
 .site-footer .footer-bottom-link:hover,
 .site-footer .footer-bottom-link:focus-visible {
-    color: var(--white);
+    color: var(--secondary-color);
 }
 
 
@@ -892,7 +945,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
 
         padding: 10px 12px 14px;
 
-        background: var(--white);
+        background: var(--header-bg);
 
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
@@ -1009,7 +1062,7 @@ body.dark-mode .theme-toggle-btn .moon-icon,
     }
 
     .site-header .header-actions {
-        gap: 3px;
+        gap: 6px;
     }
 
     .site-header .header-action {
@@ -1068,8 +1121,10 @@ body.dark-mode .theme-toggle-btn .moon-icon,
         background: transparent;
     }
 }
+
+
 /* =========================================================
-   ACCESSIBILITY - VISUALLY HIDDEN
+   26. ACCESSIBILITY - VISUALLY HIDDEN
    ========================================================= */
 
 .visually-hidden {
