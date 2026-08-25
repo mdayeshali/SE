@@ -1,0 +1,1287 @@
+/* =========================================================
+   ISLAMIC LIGHT
+   পরিবার ও দাম্পত্য জীবন
+   Page: dampotto-jibon.html
+   File: css/dampotto-jibon.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. PAGE VARIABLES
+   ========================================================= */
+
+:root {
+    --dj-primary: #00695c;
+    --dj-primary-dark: #004d40;
+    --dj-primary-light: #e0f2f1;
+
+    --dj-gold: #b8860b;
+    --dj-gold-light: #fff8e1;
+
+    --dj-text: #263238;
+    --dj-text-light: #607d8b;
+
+    --dj-bg: #f7faf9;
+    --dj-white: #ffffff;
+
+    --dj-border: #dfe8e5;
+
+    --dj-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.07);
+
+    --dj-shadow-hover:
+        0 12px 30px rgba(0, 0, 0, 0.11);
+
+    --dj-radius: 14px;
+
+    --dj-container: 1120px;
+}
+
+
+/* =========================================================
+   2. PAGE BASE
+   ========================================================= */
+
+.dampotto-page {
+    width: 100%;
+    min-height: 100vh;
+
+    background: var(--dj-bg);
+
+    color: var(--dj-text);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   3. COMMON CONTAINER
+   ========================================================= */
+
+.dampotto-container {
+    width: calc(100% - 40px);
+
+    max-width: var(--dj-container);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   4. BREADCRUMB
+   ========================================================= */
+
+.dampotto-page .breadcrumb {
+    width: 100%;
+
+    padding: 14px 0;
+
+    background: var(--dj-white);
+
+    border-bottom: 1px solid var(--dj-border);
+}
+
+
+.dampotto-page .breadcrumb .dampotto-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.dampotto-page .breadcrumb a {
+    color: var(--dj-primary);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+
+.dampotto-page .breadcrumb a:hover {
+    color: var(--dj-primary-dark);
+
+    text-decoration: underline;
+}
+
+
+.dampotto-page .breadcrumb span {
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   5. HERO SECTION
+   ========================================================= */
+
+.dampotto-hero {
+    position: relative;
+
+    padding: 80px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dj-primary-dark) 0%,
+            var(--dj-primary) 100%
+        );
+
+    color: var(--dj-white);
+
+    overflow: hidden;
+}
+
+
+/* Decorative circles */
+
+.dampotto-hero::before,
+.dampotto-hero::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.dampotto-hero::before {
+    width: 360px;
+    height: 360px;
+
+    top: -210px;
+    left: -130px;
+
+    background: rgba(255, 255, 255, 0.055);
+}
+
+
+.dampotto-hero::after {
+    width: 450px;
+    height: 450px;
+
+    right: -200px;
+    bottom: -280px;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.dampotto-hero-content {
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.dampotto-label {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 6px 16px;
+
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.11);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 50px;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.dampotto-hero h1 {
+    margin: 0 0 18px;
+
+    color: var(--dj-white);
+
+    font-size: clamp(30px, 5vw, 46px);
+
+    line-height: 1.35;
+
+    font-weight: 700;
+}
+
+
+.dampotto-hero p {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   6. INTRODUCTION
+   ========================================================= */
+
+.dampotto-intro {
+    padding: 65px 0 35px;
+}
+
+
+.dampotto-intro-box {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 38px 42px;
+
+    background: var(--dj-white);
+
+    border: 1px solid var(--dj-border);
+
+    border-radius: var(--dj-radius);
+
+    box-shadow: var(--dj-shadow);
+}
+
+
+.dampotto-intro-box h2 {
+    margin: 0 0 20px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 28px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+.dampotto-intro-box p {
+    margin: 0 0 15px;
+
+    color: var(--dj-text);
+
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+
+.dampotto-intro-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   7. SECTION HEADING
+   ========================================================= */
+
+.dampotto-section-heading {
+    margin-bottom: 36px;
+
+    text-align: center;
+}
+
+
+.dampotto-section-heading > span {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--dj-gold);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.dampotto-section-heading h2 {
+    margin: 0 0 12px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: clamp(25px, 3.5vw, 34px);
+
+    line-height: 1.45;
+}
+
+
+.dampotto-section-heading p {
+    max-width: 730px;
+
+    margin: 0 auto;
+
+    color: var(--dj-text-light);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   8. TOPICS SECTION
+   ========================================================= */
+
+.dampotto-topics {
+    padding: 45px 0 65px;
+}
+
+
+/* =========================================================
+   9. TOPIC GRID
+   ========================================================= */
+
+.dampotto-topic-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   10. TOPIC CARD
+   ========================================================= */
+
+.dampotto-topic-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 17px;
+
+    min-width: 0;
+
+    padding: 25px 22px;
+
+    background: var(--dj-white);
+
+    border: 1px solid var(--dj-border);
+
+    border-radius: var(--dj-radius);
+
+    box-shadow: var(--dj-shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.dampotto-topic-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--dj-shadow-hover);
+
+    border-color: #c4ddd8;
+}
+
+
+/* =========================================================
+   11. TOPIC NUMBER
+   ========================================================= */
+
+.topic-number {
+    flex: 0 0 48px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--dj-primary-light);
+
+    color: var(--dj-primary);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+.topic-content {
+    min-width: 0;
+}
+
+
+.topic-content h3 {
+    margin: 0 0 9px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+
+.topic-content p {
+    margin: 0 0 13px;
+
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+.topic-content a {
+    display: inline-block;
+
+    color: var(--dj-primary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.topic-content a::after {
+    content: "  →";
+
+    transition: padding-left 0.2s ease;
+}
+
+
+.topic-content a:hover {
+    color: var(--dj-primary-dark);
+
+    text-decoration: underline;
+}
+
+
+.topic-content a:hover::after {
+    padding-left: 3px;
+}
+
+
+/* =========================================================
+   12. QURAN FOUNDATION
+   ========================================================= */
+
+.dampotto-foundation {
+    padding: 20px 0 65px;
+}
+
+
+.quran-box {
+    position: relative;
+
+    max-width: 930px;
+
+    margin: 0 auto;
+
+    padding: 42px 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5,
+            var(--dj-gold-light)
+        );
+
+    border: 1px solid #eadcae;
+
+    border-right: 5px solid var(--dj-gold);
+
+    border-radius: var(--dj-radius);
+
+    box-shadow: var(--dj-shadow);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.quran-box::before {
+    content: "۞";
+
+    position: absolute;
+
+    top: -30px;
+    left: 20px;
+
+    color: rgba(184, 134, 11, 0.08);
+
+    font-size: 130px;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+.quran-box-label {
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--dj-gold);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.quran-box blockquote {
+    position: relative;
+
+    margin: 0;
+}
+
+
+.quran-box blockquote p {
+    margin: 0;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 18px;
+
+    line-height: 2.1;
+
+    font-weight: 600;
+}
+
+
+.quran-box blockquote footer {
+    margin-top: 18px;
+
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   13. PRINCIPLES
+   ========================================================= */
+
+.dampotto-principles {
+    padding: 45px 0 70px;
+
+    background: #eef7f5;
+}
+
+
+.principles-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.principle-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 17px;
+
+    padding: 25px;
+
+    background: var(--dj-white);
+
+    border: 1px solid var(--dj-border);
+
+    border-radius: var(--dj-radius);
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.045);
+}
+
+
+.principle-icon {
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--dj-primary);
+
+    color: var(--dj-white);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+.principle-item h3 {
+    margin: 0 0 8px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 19px;
+
+    line-height: 1.5;
+}
+
+
+.principle-item p {
+    margin: 0;
+
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   14. ARTICLES
+   ========================================================= */
+
+.dampotto-articles {
+    padding: 70px 0;
+}
+
+
+.article-placeholder {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px;
+
+    background: var(--dj-white);
+
+    border: 1px dashed #bfd3ce;
+
+    border-radius: var(--dj-radius);
+
+    text-align: center;
+}
+
+
+.article-placeholder-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: var(--dj-primary-light);
+
+    color: var(--dj-primary);
+
+    font-size: 30px;
+
+    font-weight: 300;
+}
+
+
+.article-placeholder h3 {
+    margin: 0 0 10px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 21px;
+
+    line-height: 1.5;
+}
+
+
+.article-placeholder p {
+    margin: 0;
+
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   15. DISCLAIMER
+   ========================================================= */
+
+.dampotto-disclaimer {
+    padding: 0 0 60px;
+}
+
+
+.disclaimer-box {
+    padding: 28px 32px;
+
+    background: #f1f8f6;
+
+    border: 1px solid #d5e7e2;
+
+    border-right: 4px solid var(--dj-primary);
+
+    border-radius: var(--dj-radius);
+}
+
+
+.disclaimer-box h2 {
+    margin: 0 0 12px;
+
+    color: var(--dj-primary-dark);
+
+    font-size: 22px;
+
+    line-height: 1.5;
+}
+
+
+.disclaimer-box p {
+    margin: 0;
+
+    color: var(--dj-text-light);
+
+    font-size: 14px;
+
+    line-height: 1.95;
+}
+
+
+/* =========================================================
+   16. CTA
+   ========================================================= */
+
+.dampotto-cta {
+    padding: 0 0 75px;
+}
+
+
+.cta-box {
+    position: relative;
+
+    padding: 48px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--dj-primary-dark),
+            var(--dj-primary)
+        );
+
+    border-radius: var(--dj-radius);
+
+    color: var(--dj-white);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.cta-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -150px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.cta-box h2,
+.cta-box p,
+.cta-button {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.cta-box h2 {
+    margin: 0 0 13px;
+
+    color: var(--dj-white);
+
+    font-size: 27px;
+
+    line-height: 1.5;
+}
+
+
+.cta-box p {
+    max-width: 700px;
+
+    margin: 0 auto 25px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+.cta-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 10px 24px;
+
+    background: var(--dj-white);
+
+    color: var(--dj-primary-dark);
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.cta-button:hover {
+    color: var(--dj-primary-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   17. LINKS / FOCUS
+   ========================================================= */
+
+.dampotto-page a:focus-visible {
+    outline: 3px solid rgba(0, 105, 92, 0.3);
+
+    outline-offset: 3px;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   18. TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dampotto-topic-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   19. MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .dampotto-container {
+        width: calc(100% - 28px);
+    }
+
+
+    .dampotto-hero {
+        padding: 58px 0;
+    }
+
+
+    .dampotto-hero h1 {
+        font-size: 30px;
+    }
+
+
+    .dampotto-hero p {
+        font-size: 15px;
+
+        line-height: 1.9;
+    }
+
+
+    .dampotto-intro {
+        padding: 45px 0 25px;
+    }
+
+
+    .dampotto-intro-box {
+        padding: 28px 23px;
+    }
+
+
+    .dampotto-intro-box h2 {
+        font-size: 24px;
+    }
+
+
+    .dampotto-intro-box p {
+        font-size: 15px;
+
+        line-height: 1.9;
+    }
+
+
+    .dampotto-topics {
+        padding: 35px 0 50px;
+    }
+
+
+    .dampotto-topic-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .dampotto-topic-card {
+        padding: 21px 18px;
+    }
+
+
+    .dampotto-section-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .dampotto-section-heading h2 {
+        font-size: 25px;
+    }
+
+
+    .dampotto-section-heading p {
+        font-size: 14px;
+    }
+
+
+    .quran-box {
+        padding: 30px 22px;
+    }
+
+
+    .quran-box blockquote p {
+        font-size: 16px;
+
+        line-height: 2;
+    }
+
+
+    .dampotto-principles {
+        padding: 40px 0 55px;
+    }
+
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .principle-item {
+        padding: 20px 18px;
+    }
+
+
+    .dampotto-articles {
+        padding: 55px 0;
+    }
+
+
+    .article-placeholder {
+        padding: 35px 20px;
+    }
+
+
+    .dampotto-disclaimer {
+        padding-bottom: 50px;
+    }
+
+
+    .disclaimer-box {
+        padding: 23px 20px;
+    }
+
+
+    .cta-box {
+        padding: 38px 20px;
+    }
+
+
+    .cta-box h2 {
+        font-size: 23px;
+    }
+
+
+    .cta-box p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   20. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .dampotto-container {
+        width: calc(100% - 20px);
+    }
+
+
+    .dampotto-page .breadcrumb {
+        padding: 11px 0;
+    }
+
+
+    .dampotto-page .breadcrumb a,
+    .dampotto-page .breadcrumb span {
+        font-size: 13px;
+    }
+
+
+    .dampotto-hero {
+        padding: 45px 0;
+    }
+
+
+    .dampotto-label {
+        margin-bottom: 15px;
+
+        font-size: 13px;
+    }
+
+
+    .dampotto-hero h1 {
+        font-size: 26px;
+
+        line-height: 1.4;
+    }
+
+
+    .dampotto-hero p {
+        font-size: 14px;
+
+        line-height: 1.85;
+    }
+
+
+    .dampotto-intro-box {
+        padding: 24px 17px;
+    }
+
+
+    .dampotto-intro-box h2 {
+        font-size: 22px;
+    }
+
+
+    .dampotto-intro-box p {
+        font-size: 14px;
+    }
+
+
+    .dampotto-topic-card {
+        gap: 13px;
+
+        padding: 18px 15px;
+    }
+
+
+    .topic-number {
+        flex-basis: 42px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 13px;
+    }
+
+
+    .topic-content h3 {
+        font-size: 17px;
+    }
+
+
+    .topic-content p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    .topic-content a {
+        font-size: 13px;
+    }
+
+
+    .quran-box {
+        padding: 27px 17px;
+    }
+
+
+    .quran-box blockquote p {
+        font-size: 15px;
+
+        line-height: 1.95;
+    }
+
+
+    .quran-box blockquote footer {
+        font-size: 13px;
+    }
+
+
+    .principle-item {
+        gap: 12px;
+
+        padding: 17px 15px;
+    }
+
+
+    .principle-icon {
+        flex-basis: 40px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 13px;
+    }
+
+
+    .principle-item h3 {
+        font-size: 17px;
+    }
+
+
+    .principle-item p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    .article-placeholder {
+        padding: 30px 16px;
+    }
+
+
+    .article-placeholder h3 {
+        font-size: 19px;
+    }
+
+
+    .article-placeholder p {
+        font-size: 13px;
+    }
+
+
+    .disclaimer-box h2 {
+        font-size: 20px;
+    }
+
+
+    .disclaimer-box p {
+        font-size: 13px;
+    }
+
+
+    .cta-box {
+        padding: 32px 16px;
+    }
+
+
+    .cta-box h2 {
+        font-size: 21px;
+    }
+
+
+    .cta-button {
+        width: 100%;
+        max-width: 260px;
+    }
+
+}
+
+
+/* =========================================================
+   21. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .dampotto-topic-card,
+    .cta-button,
+    .topic-content a::after {
+        transition: none;
+    }
+
+}
