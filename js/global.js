@@ -13,8 +13,8 @@
 
 const SITE_CONFIG = {
     // প্রয়োজন অনুযায়ী পাথ পরিবর্তন করুন (রিলেটিভ পাথ ব্যবহার করা নিরাপদ)
-    headerPath: "/header.html",
-    footerPath: "/footer.html"
+    headerPath: "header.html",
+    footerPath: "footer.html"
 };
 
 
