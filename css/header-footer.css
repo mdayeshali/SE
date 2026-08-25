@@ -4,6 +4,40 @@
    Header & Footer Styles
    File: header-footer.css
    ========================================================= */
+/* =========================================
+   GLOBAL RESET & BORDER GAP FIX
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--home-bg, #12181b);
+}
+
+/* নিশ্চিত করুন মূল হেডার এবং সেকশনগুলো পুরো স্ক্রিন জুড়ে থাকে */
+.site-header,
+main,
+.hero-section,
+.intro-section,
+.categories-section,
+.latest-articles-section,
+.guidance-section,
+.cta-section,
+.site-footer {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
 
 
 /* =========================================================
