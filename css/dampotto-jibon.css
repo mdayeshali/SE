@@ -128,44 +128,6 @@ body.dark-mode,
 
 
 /* =========================================================
-   4. BREADCRUMB
-   ========================================================= */
-
-.dampotto-page .breadcrumb {
-    width: 100%;
-    padding: 14px 0;
-    background: var(--dj-white);
-    border-bottom: 1px solid var(--dj-border);
-    transition: background-color var(--dj-transition), border-color var(--dj-transition);
-}
-
-.dampotto-page .breadcrumb .dampotto-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.dampotto-page .breadcrumb a {
-    color: var(--dj-primary);
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color var(--dj-transition);
-}
-
-.dampotto-page .breadcrumb a:hover {
-    color: var(--dj-primary-dark);
-    text-decoration: underline;
-}
-
-.dampotto-page .breadcrumb span {
-    color: var(--dj-text-light);
-    font-size: 14px;
-}
-
-
-/* =========================================================
    5. HERO SECTION
    ========================================================= */
 
