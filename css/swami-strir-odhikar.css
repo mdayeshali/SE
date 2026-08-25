@@ -1,0 +1,753 @@
+/* =========================================================
+   স্বামী-স্ত্রীর অধিকার
+   css/swami-strir-odhikar.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   0. THEME VARIABLES (LIGHT & DARK THEMES)
+   --------------------------------------------------------- */
+
+:root {
+    --rights-primary: #00796b;
+    --rights-primary-dark: #064e3b;
+    --rights-primary-heading: #075e54;
+    --rights-primary-subheading: #176b5f;
+    --rights-accent-border: #009688;
+
+    --rights-text: #34423e;
+    --rights-text-light: #52635d;
+    --rights-muted: #667872;
+
+    --rights-bg: #f8faf9;
+    --rights-card-bg: #ffffff;
+    --rights-border: #e3ebe7;
+
+    --rights-intro-bg: #f0f8f5;
+    --rights-intro-text: #30443e;
+
+    --rights-quote-bg: #f7fbf9;
+    --rights-quote-border: #d8e8e2;
+    --rights-arabic-color: #174f43;
+    --rights-translation-color: #40534d;
+
+    --rights-list-bg: #f8fbfa;
+    --rights-list-border: #e4ece8;
+
+    --rights-note-bg: #fff9e8;
+    --rights-note-border: #d99a00;
+    --rights-note-title: #805d00;
+    --rights-note-text: #5f522f;
+
+    --rights-reminder-bg: linear-gradient(135deg, #edf8f4, #f8fcfa);
+    --rights-reminder-border: #cfe5dc;
+
+    --rights-sources-border: #e0e8e4;
+    --rights-share-border: #e1e9e5;
+
+    --rights-shadow: 0 5px 20px rgba(0, 77, 64, 0.06);
+    --rights-img-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --rights-transition: 0.25s ease;
+}
+
+/* System Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --rights-primary: #26a69a;
+        --rights-primary-dark: #80cbc4;
+        --rights-primary-heading: #80cbc4;
+        --rights-primary-subheading: #4db6ac;
+        --rights-accent-border: #26a69a;
+
+        --rights-text: #eceff1;
+        --rights-text-light: #b0bec5;
+        --rights-muted: #90a4ae;
+
+        --rights-bg: #12181b;
+        --rights-card-bg: #1a2226;
+        --rights-border: #263238;
+
+        --rights-intro-bg: #152423;
+        --rights-intro-text: #e0f2f1;
+
+        --rights-quote-bg: #141f22;
+        --rights-quote-border: #26383e;
+        --rights-arabic-color: #a7ffeb;
+        --rights-translation-color: #cfd8dc;
+
+        --rights-list-bg: #151e22;
+        --rights-list-border: #26383e;
+
+        --rights-note-bg: #2a2312;
+        --rights-note-border: #ffd54f;
+        --rights-note-title: #ffe082;
+        --rights-note-text: #fff8e1;
+
+        --rights-reminder-bg: linear-gradient(135deg, #132422, #182b28);
+        --rights-reminder-border: #24433e;
+
+        --rights-sources-border: #26383e;
+        --rights-share-border: #26383e;
+
+        --rights-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+        --rights-img-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+    }
+}
+
+/* Class-based Dark Mode Support */
+body.dark-mode,
+[data-theme="dark"] {
+    --rights-primary: #26a69a;
+    --rights-primary-dark: #80cbc4;
+    --rights-primary-heading: #80cbc4;
+    --rights-primary-subheading: #4db6ac;
+    --rights-accent-border: #26a69a;
+
+    --rights-text: #eceff1;
+    --rights-text-light: #b0bec5;
+    --rights-muted: #90a4ae;
+
+    --rights-bg: #12181b;
+    --rights-card-bg: #1a2226;
+    --rights-border: #263238;
+
+    --rights-intro-bg: #152423;
+    --rights-intro-text: #e0f2f1;
+
+    --rights-quote-bg: #141f22;
+    --rights-quote-border: #26383e;
+    --rights-arabic-color: #a7ffeb;
+    --rights-translation-color: #cfd8dc;
+
+    --rights-list-bg: #151e22;
+    --rights-list-border: #26383e;
+
+    --rights-note-bg: #2a2312;
+    --rights-note-border: #ffd54f;
+    --rights-note-title: #ffe082;
+    --rights-note-text: #fff8e1;
+
+    --rights-reminder-bg: linear-gradient(135deg, #132422, #182b28);
+    --rights-reminder-border: #24433e;
+
+    --rights-sources-border: #26383e;
+    --rights-share-border: #26383e;
+
+    --rights-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+    --rights-img-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ---------------------------------------------------------
+   1. Page Container
+   --------------------------------------------------------- */
+
+.rights-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+    box-sizing: border-box;
+    background-color: var(--rights-bg);
+    color: var(--rights-text);
+    transition: background-color var(--rights-transition), color var(--rights-transition);
+}
+
+
+/* ---------------------------------------------------------
+   2. Article Header
+   --------------------------------------------------------- */
+
+.rights-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.rights-header h1 {
+    margin: 0;
+    color: var(--rights-primary-dark);
+    font-size: 2.1rem;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.rights-header .subtitle {
+    max-width: 780px;
+    margin: 12px auto 0;
+    color: var(--rights-text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   3. Featured Image
+   --------------------------------------------------------- */
+
+.rights-featured-image {
+    width: 100%;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.rights-featured-image img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: var(--rights-img-shadow);
+}
+
+
+/* ---------------------------------------------------------
+   4. Main Article
+   --------------------------------------------------------- */
+
+.rights-article {
+    background: var(--rights-card-bg);
+    border: 1px solid var(--rights-border);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: var(--rights-shadow);
+    transition: background-color var(--rights-transition), border-color var(--rights-transition);
+}
+
+
+/* ---------------------------------------------------------
+   5. Introduction
+   --------------------------------------------------------- */
+
+.rights-introduction {
+    margin-bottom: 35px;
+    padding: 22px 24px;
+    background: var(--rights-intro-bg);
+    border-left: 5px solid var(--rights-primary);
+    border-radius: 10px;
+    transition: background-color var(--rights-transition), border-color var(--rights-transition);
+}
+
+.rights-introduction p {
+    margin: 0;
+    color: var(--rights-intro-text);
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+
+/* ---------------------------------------------------------
+   6. Article Sections
+   --------------------------------------------------------- */
+
+.rights-section {
+    margin-bottom: 38px;
+}
+
+.rights-section:last-child {
+    margin-bottom: 0;
+}
+
+.rights-section h2 {
+    position: relative;
+    margin: 0 0 18px;
+    padding-left: 15px;
+    color: var(--rights-primary-heading);
+    font-size: 1.55rem;
+    line-height: 1.5;
+    font-weight: 700;
+    border-left: 4px solid var(--rights-accent-border);
+}
+
+.rights-section h3 {
+    margin: 25px 0 12px;
+    color: var(--rights-primary-subheading);
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   7. Paragraph
+   --------------------------------------------------------- */
+
+.rights-section p {
+    margin: 0 0 17px;
+    color: var(--rights-text);
+    font-size: 1.02rem;
+    line-height: 2;
+    text-align: justify;
+}
+
+.rights-section p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   8. Quran / Hadith Quote
+   --------------------------------------------------------- */
+
+.quran-quote,
+.hadith-quote {
+    margin: 22px 0;
+    padding: 22px 25px;
+    background: var(--rights-quote-bg);
+    border: 1px solid var(--rights-quote-border);
+    border-radius: 12px;
+    transition: background-color var(--rights-transition), border-color var(--rights-transition);
+}
+
+.quran-quote .arabic,
+.hadith-quote .arabic {
+    margin-bottom: 15px;
+    color: var(--rights-arabic-color);
+    font-family: "Noto Naskh Arabic", "Amiri", serif;
+    font-size: 1.65rem;
+    line-height: 2.1;
+    text-align: right;
+    direction: rtl;
+}
+
+.quran-quote .translation,
+.hadith-quote .translation {
+    color: var(--rights-translation-color);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* ---------------------------------------------------------
+   9. Reference
+   --------------------------------------------------------- */
+
+.reference {
+    display: block;
+    margin-top: 12px;
+    color: var(--rights-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+
+/* ---------------------------------------------------------
+   10. Rights List
+   --------------------------------------------------------- */
+
+.rights-list {
+    margin: 18px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rights-list li {
+    position: relative;
+    margin-bottom: 13px;
+    padding: 13px 16px 13px 42px;
+    color: var(--rights-text);
+    background: var(--rights-list-bg);
+    border: 1px solid var(--rights-list-border);
+    border-radius: 9px;
+    font-size: 1rem;
+    line-height: 1.8;
+    transition: background-color var(--rights-transition), border-color var(--rights-transition);
+}
+
+.rights-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 15px;
+    top: 13px;
+    color: var(--rights-primary);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+/* ---------------------------------------------------------
+   11. Important Note
+   --------------------------------------------------------- */
+
+.important-note {
+    margin: 25px 0;
+    padding: 20px 22px;
+    background: var(--rights-note-bg);
+    border-left: 5px solid var(--rights-note-border);
+    border-radius: 10px;
+    transition: background-color var(--rights-transition), border-color var(--rights-transition);
+}
+
+.important-note strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--rights-note-title);
+    font-size: 1.05rem;
+}
+
+.important-note p {
+    margin: 0;
+    color: var(--rights-note-text);
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+
+/* ---------------------------------------------------------
+   12. Islamic Reminder
+   --------------------------------------------------------- */
+
+.islamic-reminder {
+    margin: 35px 0 0;
+    padding: 25px;
+    text-align: center;
+    background: var(--rights-reminder-bg);
+    border: 1px solid var(--rights-reminder-border);
+    border-radius: 14px;
+    transition: background var(--rights-transition), border-color var(--rights-transition);
+}
+
+.islamic-reminder h3 {
+    margin: 0 0 12px;
+    color: var(--rights-primary-heading);
+    font-size: 1.3rem;
+}
+
+.islamic-reminder p {
+    margin: 0;
+    color: var(--rights-translation-color);
+    font-size: 1rem;
+    line-height: 2;
+}
+
+
+/* ---------------------------------------------------------
+   13. Article Footer / Sources
+   --------------------------------------------------------- */
+
+.article-sources {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid var(--rights-sources-border);
+}
+
+.article-sources h2 {
+    margin: 0 0 15px;
+    color: var(--rights-primary-heading);
+    font-size: 1.35rem;
+}
+
+.article-sources ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.article-sources li {
+    margin-bottom: 8px;
+    color: var(--rights-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   14. Links
+   --------------------------------------------------------- */
+
+.rights-article a {
+    color: var(--rights-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--rights-transition);
+}
+
+.rights-article a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   15. Share Section
+   --------------------------------------------------------- */
+
+.article-share {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid var(--rights-share-border);
+    text-align: center;
+}
+
+.article-share h3 {
+    margin: 0 0 15px;
+    color: var(--rights-primary-heading);
+    font-size: 1.15rem;
+}
+
+
+/* ---------------------------------------------------------
+   16. Back to Top
+   --------------------------------------------------------- */
+
+.back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: var(--rights-primary);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color var(--rights-transition), transform var(--rights-transition);
+}
+
+.back-to-top:hover {
+    background: var(--rights-primary-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   17. Responsive - Tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .rights-page {
+        padding: 22px 15px 45px;
+    }
+
+    .rights-header {
+        margin-bottom: 24px;
+    }
+
+    .rights-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .rights-header .subtitle {
+        font-size: 0.98rem;
+        line-height: 1.8;
+    }
+
+    .rights-featured-image {
+        margin-bottom: 25px;
+    }
+
+    .rights-featured-image img {
+        border-radius: 12px;
+    }
+
+    .rights-article {
+        padding: 25px 20px;
+        border-radius: 13px;
+    }
+
+    .rights-section {
+        margin-bottom: 30px;
+    }
+
+    .rights-section h2 {
+        font-size: 1.35rem;
+    }
+
+    .rights-section h3 {
+        font-size: 1.15rem;
+    }
+
+    .rights-section p {
+        font-size: 0.98rem;
+        line-height: 1.9;
+        text-align: left;
+    }
+
+    .quran-quote,
+    .hadith-quote {
+        padding: 18px;
+    }
+
+    .quran-quote .arabic,
+    .hadith-quote .arabic {
+        font-size: 1.4rem;
+        line-height: 2;
+    }
+
+    .rights-list li {
+        padding: 11px 13px 11px 38px;
+        font-size: 0.95rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   18. Responsive - Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .rights-page {
+        padding: 18px 10px 35px;
+    }
+
+    .rights-header h1 {
+        font-size: 1.45rem;
+        line-height: 1.5;
+    }
+
+    .rights-header .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .rights-featured-image img {
+        border-radius: 10px;
+    }
+
+    .rights-article {
+        padding: 20px 15px;
+        border-radius: 11px;
+    }
+
+    .rights-introduction {
+        padding: 17px;
+        margin-bottom: 28px;
+    }
+
+    .rights-introduction p {
+        font-size: 0.94rem;
+        line-height: 1.9;
+    }
+
+    .rights-section {
+        margin-bottom: 28px;
+    }
+
+    .rights-section h2 {
+        margin-bottom: 14px;
+        padding-left: 11px;
+        font-size: 1.18rem;
+    }
+
+    .rights-section h3 {
+        margin-top: 20px;
+        font-size: 1.05rem;
+    }
+
+    .rights-section p {
+        font-size: 0.93rem;
+        line-height: 1.9;
+    }
+
+    .quran-quote,
+    .hadith-quote {
+        margin: 18px 0;
+        padding: 15px;
+    }
+
+    .quran-quote .arabic,
+    .hadith-quote .arabic {
+        font-size: 1.25rem;
+        line-height: 2;
+    }
+
+    .quran-quote .translation,
+    .hadith-quote .translation {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .rights-list {
+        margin: 15px 0;
+    }
+
+    .rights-list li {
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 34px;
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
+    .rights-list li::before {
+        left: 12px;
+        top: 10px;
+    }
+
+    .important-note {
+        padding: 16px;
+    }
+
+    .important-note p {
+        font-size: 0.9rem;
+    }
+
+    .islamic-reminder {
+        padding: 18px 15px;
+    }
+
+    .islamic-reminder h3 {
+        font-size: 1.1rem;
+    }
+
+    .islamic-reminder p {
+        font-size: 0.9rem;
+        line-height: 1.85;
+    }
+
+    .article-sources {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .article-sources h2 {
+        font-size: 1.15rem;
+    }
+
+    .article-sources li {
+        font-size: 0.88rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   19. Accessibility
+   --------------------------------------------------------- */
+
+.rights-article a:focus-visible,
+.back-to-top:focus-visible {
+    outline: 3px solid var(--rights-primary);
+    outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   20. Print
+   --------------------------------------------------------- */
+
+@media print {
+
+    .rights-page {
+        max-width: 100%;
+        padding: 0;
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    .rights-article {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background: #ffffff !important;
+    }
+
+    .rights-featured-image img {
+        box-shadow: none;
+    }
+
+    .article-share,
+    .back-to-top {
+        display: none;
+    }
+
+}
